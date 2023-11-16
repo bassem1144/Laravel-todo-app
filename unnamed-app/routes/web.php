@@ -14,11 +14,22 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+// Login Routes
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+// Register Routes
+Route::get('register', function () {
+    return view('auth.register');
+});
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
