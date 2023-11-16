@@ -33,7 +33,6 @@ class AuthController extends Controller
             'password' => $password,
         ]);
 
-
-        redirect()->route('login');
+        return redirect()->route('showLogin');
     }
 }

@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('showLogin');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Register Routes
