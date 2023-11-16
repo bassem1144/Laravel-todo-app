@@ -7,6 +7,14 @@
 
 <body>
 	<h1>Login</h1>
+
+		@if (session()->has('message'))
+            <div>
+                {{ session('message') }}
+            </div>
+        @endif
+
+
 	<form action="{{ route('login') }}" method="post">
 		@csrf
 		<label for="email">Email:</label>

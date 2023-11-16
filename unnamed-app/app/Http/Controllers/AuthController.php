@@ -33,6 +33,8 @@ class AuthController extends Controller
             'password' => $password,
         ]);
 
+        session()->flash('message', 'Account created successfully!');
+
         return redirect()->route('showLogin');
     }
 }
