@@ -3,6 +3,7 @@
 
 <head>
 	<title>Login Page</title>
+	@vite('resources/css/app.css')
 </head>
 
 <body>

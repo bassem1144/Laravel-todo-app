@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Dashboard</title>
+	@vite('resources/css/app.css')
 </head>
 <body>
 	<h1>Dashboard</h1>
