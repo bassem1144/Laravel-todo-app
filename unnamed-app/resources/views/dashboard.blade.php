@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Dashboard</title>
-	@vite('resources/css/app.css')
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
+
 	<h1>Dashboard</h1>
 
-<p>Je bent nu ingelogt  {{ auth()->user()->name }}!</p>
+	<p>Je bent nu ingelogt  {{ auth()->user()->name }}!</p>
    
 
-
-</body>
-</html>
+@endsection

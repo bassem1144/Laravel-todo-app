@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    @vite('resources/css/app.css')
-    <!-- Include the jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-</head>
-
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+@section('content')
 
     <div class="bg-white p-8 rounded shadow-md w-96">
         <h1 class="text-2xl font-semibold mb-6">Register</h1>
@@ -30,7 +20,6 @@
             <input type="password" id="password" name="password" value="{{ old('password') }}"
                 class="w-full border rounded-md py-2 px-3 mb-3 @error('password') border-red-500 @enderror">
 
-            <p>Password Criteria:</p>
             <ul>
                 <li id="characters"></li>
                 <li id="uppercase"></li>
@@ -58,7 +47,6 @@
                     // Get the password value
                     var password = $(this).val();
 
-					
                     // Perform validation
                     if (password.length > 5) {
                         $('#characters').css('color', 'green').text('✓ Must be at least 5 characters');
@@ -83,6 +71,4 @@
         </script>
     </div>
 
-</body>
-
-</html>
+@endsection
