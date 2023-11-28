@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,4 @@ Route::get('register', function () {
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
