@@ -41,3 +41,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/task/create', [DashboardController::class, 'create'])->name('task.create')->middleware('auth');
 
 Route::post('/task/store', [DashboardController::class, 'store'])->name('task.store')->middleware('auth');
+
+Route::get('/task/edit/{id}', [DashboardController::class, 'edit'])->name('task.edit')->middleware('auth');
+
+Route::put('/task/update/{id}', [DashboardController::class, 'update'])->name('task.update')->middleware('auth');
+
+Route::delete('/task/delete/{id}', [DashboardController::class, 'delete'])->name('task.delete')->middleware('auth');

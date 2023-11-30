@@ -36,4 +36,39 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function edit($id)
+    {
+        $task = Task::find($id);
+
+        return view('task.edit', compact('task'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $task = Task::find($id);
+
+        $request->validate([
+            'title' => 'required',
+            'description' => '',
+            'status' => 'required',
+        ]);
+
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function delete($id)
+    {
+        $task = Task::find($id);
+
+        $task->delete();
+
+        return redirect()->route('dashboard');
+    }
 }

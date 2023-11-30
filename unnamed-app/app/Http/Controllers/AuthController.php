@@ -49,6 +49,9 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->logout();
+
+        session()->flash('message', 'Logged out successfully!');
+
         return redirect()->route('showLogin');
     }
 
