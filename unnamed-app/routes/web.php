@@ -34,3 +34,7 @@ Route::get('register', function () {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/task/create', [DashboardController::class, 'create'])->name('task.create');
+
+Route::post('/task/store', [DashboardController::class, 'store'])->name('task.store');
