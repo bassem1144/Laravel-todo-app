@@ -36,8 +36,8 @@ Route::get('register', function () {
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/task/create', [DashboardController::class, 'create'])->name('task.create');
+Route::get('/task/create', [DashboardController::class, 'create'])->name('task.create')->middleware('auth');
 
-Route::post('/task/store', [DashboardController::class, 'store'])->name('task.store');
+Route::post('/task/store', [DashboardController::class, 'store'])->name('task.store')->middleware('auth');
