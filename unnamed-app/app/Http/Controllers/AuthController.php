@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\VerifyMail;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -35,10 +38,13 @@ class AuthController extends Controller
         $password = bcrypt($request->input('password'));
 
         $user = User::create([
+            'GUID' => Str::uuid(),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $password,
         ]);
+
+        Mail::to($user->email)->send(new VerifyMail($user->GUID, $user->name));
 
         session()->flash('message', 'Account created successfully!');
 
