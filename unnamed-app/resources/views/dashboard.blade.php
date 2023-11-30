@@ -4,7 +4,14 @@
     <div class="mx-4">
         <button class="absolute top-0 right-4 bg-blue-500 text-white px-4 py-2 rounded-md">
             <a href="{{ route('task.create') }}"
-                class="absolute top-0 right-4 bg-blue-500 text-white px-4 py-2 rounded-md">Add Task</a></button>
+                class="absolute top-0 right-4 bg-blue-500 text-white px-4 py-2 rounded-md">Add Task</a>
+        </button>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="absolute top-0 right-16 bg-red-500 text-white px-4 py-2 rounded-md">Logout</button>
+        </form>
+    </div>
+
         <div class="bg-white rounded-md shadow-md overflow-hidden relative">
             <table class="min-w-full">
                 <thead>

@@ -45,20 +45,11 @@ class AuthController extends Controller
         return redirect()->route('showLogin');
     }
 
-
-    public function checkApi()
+    //Logout
+    public function logout()
     {
-        $accessKey = 'd66cea88907bfc89cb9d6cff3f3689c5';
-        $email = 'support@gil.com';
-
-        $response = Http::get('http://apilayer.net/api/check', [
-            'access_key' => $accessKey,
-            'email' => $email,
-        ]);
-
-        $result = $response->json();
-
-        dd($result);
+        auth()->logout();
+        return redirect()->route('showLogin');
     }
 
 }
