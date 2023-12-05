@@ -31,6 +31,7 @@
                         </td>
                         <td class="py-2 px-4 border-b">{{ $task->description }}</td>
                         <td class="py-2 px-4 border-b">{{ $task->status }}</td>
+                        <td><a href="{{ route('markAsDone', ['GUID' => $task->GUID]) }}">Done</a></td>
                     </tr>
                 @endforeach
             </tbody>

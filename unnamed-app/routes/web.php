@@ -50,3 +50,5 @@ Route::get('/task/edit/{id}', [DashboardController::class, 'edit'])->name('task.
 Route::put('/task/update/{id}', [DashboardController::class, 'update'])->name('task.update')->middleware('auth');
 
 Route::delete('/task/delete/{id}', [DashboardController::class, 'delete'])->name('task.delete')->middleware('auth');
+
+Route::get('/mark-as-done/{GUID}', [DashboardController::class, 'markAsDone'])->name('markAsDone');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -28,6 +29,7 @@ class DashboardController extends Controller
         ]);
 
         Task::create([
+            'GUID' => Str::uuid(),
             'title' => $request->title,
             'description' => $request->description,
             'status' => $request->status,
@@ -68,6 +70,17 @@ class DashboardController extends Controller
         $task = Task::find($id);
 
         $task->delete();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function markAsDone($GUID)
+    {
+        $task = Task::where('GUID', $GUID)->first();
+
+        $task->update([
+            'status' => 'done',
+        ]);
 
         return redirect()->route('dashboard');
     }

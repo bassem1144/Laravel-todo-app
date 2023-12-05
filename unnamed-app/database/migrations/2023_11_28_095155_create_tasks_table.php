@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->string('GUID', 300)->unique();
             $table->string('title');
             $table->string('description');
             $table->string('status')->default('pending');
