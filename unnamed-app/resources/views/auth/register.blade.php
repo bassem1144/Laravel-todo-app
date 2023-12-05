@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="min-h-screen flex items-center justify-center flex-col">
     <div class="bg-white p-8 rounded shadow-md w-96">
         <h1 class="text-2xl font-semibold mb-6">Register</h1>
 
@@ -117,5 +117,6 @@
             });
         </script>
     </div>
+</div>
 
 @endsection

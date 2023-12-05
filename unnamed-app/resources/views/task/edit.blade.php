@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="min-h-screen flex items-center justify-center flex-col">
     <form method="POST" action="{{ route('task.update', $task->id) }}" class="p-4">
     @csrf
     @method('PUT')
@@ -35,5 +36,6 @@
         <button type="submit" class="text-red-500 hover:underline">Delete</button>
     </form>
 
+</div>
     
 @endsection

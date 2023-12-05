@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="min-h-screen flex items-center justify-center flex-col">
     <form method="POST" action="{{ route('task.store') }}" class="p-4">
         @csrf
         <div class="mb-4">
@@ -27,5 +27,6 @@
             <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Create Task</button>
         </div>
     </form>
+</div>
     
 @endsection
