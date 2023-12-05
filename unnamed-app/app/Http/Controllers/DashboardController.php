@@ -79,7 +79,7 @@ class DashboardController extends Controller
         $task = Task::where('GUID', $GUID)->first();
 
         $task->update([
-            'status' => 'done',
+            'status' => 'completed',
         ]);
 
         return redirect()->route('dashboard');
