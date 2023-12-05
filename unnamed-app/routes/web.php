@@ -34,6 +34,9 @@ Route::get('register', function () {
     return view('auth.register');
 });
 
+// verify email
+Route::get('/verify/{GUID}', [AuthController::class, 'verify'])->name('verify');
+
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');

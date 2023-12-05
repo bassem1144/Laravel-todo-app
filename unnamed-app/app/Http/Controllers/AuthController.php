@@ -61,4 +61,25 @@ class AuthController extends Controller
         return redirect()->route('showLogin');
     }
 
+    //Verify
+    public function verify($GUID)
+    {
+        $user = User::where('GUID', $GUID)->first();
+
+        if ($user) {
+            $user->update([
+                'email_verified_at' => now(),
+            ]);
+
+            session()->flash('message', 'Email verified successfully!');
+
+            return redirect()->route('showLogin');
+        } else {
+            session()->flash('message', 'Invalid verification link!');
+
+            return redirect()->route('showLogin');
+        }
+    }
 }
+
+
