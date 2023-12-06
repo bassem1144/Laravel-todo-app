@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('layouts.navbar')
+    
     <div class="min-h-screen flex items-center justify-center flex-col">
         <form method="POST" action="{{ route('task.update', $task->id) }}" class="p-4">
             @csrf

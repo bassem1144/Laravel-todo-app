@@ -1,18 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-end items-center p-4">
-        <a href="{{ route('task.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-            Add Task
-        </a>
-
-        <form action="{{ route('logout') }}" method="POST" class="ml-4">
-            @csrf
-            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
-                Logout
-            </button>
-        </form>
-    </div>
+    
+    @include('layouts.navbar')
 
     @if ($tasks->count() > 0)
         <div class="bg-white rounded-md shadow-md overflow-hidden p-4 mx-auto mt-8 max-w-2xl">
