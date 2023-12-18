@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::where('user_id', auth()->user()->id)->get();
 
         return view('dashboard', compact('tasks'));
     }
