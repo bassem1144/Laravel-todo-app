@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Task;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -10,9 +11,23 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $tasks = Task::where('user_id', auth()->user()->id)->orderBy('due_date')->get();
+        $tasks = Task::where('user_id', auth()->user()->id)
+            ->orderBy('due_date')
+            ->get();
 
-        return view('dashboard', compact('tasks'));
+        $todayTasks = $tasks->filter(function ($task) {
+            return $task->due_date == now()->format('Y-m-d');
+        });
+
+        $tomorrowTasks = $tasks->filter(function ($task) {
+            return $task->due_date == now()->addDay()->format('Y-m-d');
+        });
+
+        $restOfWeekTasks = $tasks->filter(function ($task) {
+            return now()->lt(Carbon::parse($task->due_date)->endOfDay()) && now()->endOfWeek()->gte(Carbon::parse($task->due_date));
+        });
+
+        return view('dashboard', compact('todayTasks', 'tomorrowTasks', 'restOfWeekTasks'));
     }
 
     public function create()
