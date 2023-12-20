@@ -11,6 +11,7 @@
                     <tr>
                         <th class="py-2 px-4 border-b text-left">Task</th>
                         <th class="py-2 px-4 border-b text-left">Description</th>
+                        <th class="py-2 px-4 border-b text-left">Due date</th>
                         <th class="py-2 px-4 border-b text-left">Status</th>
                         <th class="py-2 px-4 border-b text-center">Actions</th>
                     </tr>
@@ -24,6 +25,7 @@
                                 </a>
                             </td>
                             <td class="py-2 px-4 border-b">{{ $task->description }}</td>
+                            <td class="py-2 px-4 border-b">{{ $task->due_date }}</td>
                             <td class="py-2 px-4 border-b">{{ ucwords(str_replace('_', ' ', $task->status)) }}</td>
                             <td class="py-2 px-4 border-b text-center">
                                 <a href="{{ route('markAsDone', ['GUID' => $task->GUID]) }}"

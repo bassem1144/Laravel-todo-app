@@ -25,6 +25,7 @@ class DashboardController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => '',
+            'due_date' => '',
             'status' => 'required',
         ]);
 
@@ -32,6 +33,7 @@ class DashboardController extends Controller
             'GUID' => Str::uuid(),
             'title' => $request->title,
             'description' => $request->description,
+            'due_date' => $request->due_date,
             'status' => $request->status,
             'user_id' => auth()->user()->id,
         ]);

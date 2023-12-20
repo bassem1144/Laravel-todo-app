@@ -17,6 +17,11 @@
             </div>
 
             <div class="mb-4">
+                <label for="due_date" class="block text-gray-700 text-sm font-bold mb-2">Due Date:</label>
+                <input type="date" name="due_date" id="due_date" class="w-full rounded-md border-gray-300 p-2" required>
+            </div>
+
+            <div class="mb-4">
                 <label for="status" class="block text-gray-700 text-sm font-bold mb-2">Task Status:</label>
                 <select name="status" id="status" class="w-full rounded-md border-gray-300 p-2" required>
                     <option value="pending">Pending</option>
