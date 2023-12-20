@@ -134,9 +134,9 @@
     @if ($todayTasks->isEmpty() && $tomorrowTasks->isEmpty() && $restOfWeekTasks->isEmpty())
         <div class="bg-white rounded-md shadow-md overflow-hidden p-4 mx-auto mt-8 max-w-2xl">
             <h1 class="text-2xl font-semibold mb-6">No Tasks</h1>
-            <p class="text-gray-600">You have no tasks.</p>
+            <p class="text-gray-600">You have no tasks this week.</p>
             <p class="text-gray-600">Click <a href="{{ route('task.create') }}" class="font-bold text-blue-500">here</a> to
-                add your first task.</p>
+                add your first task of the week.</p>
         </div>
     @endif
 
