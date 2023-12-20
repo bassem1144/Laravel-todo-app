@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('status')->default('pending');
+            $table->date('due_date')->nullable(); 
             $table->integer('user_id');
             $table->timestamps();
         });
