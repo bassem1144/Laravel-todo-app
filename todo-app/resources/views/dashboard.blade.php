@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     @include('layouts.navbar')
 
     @if ($tasks->count() > 0)
@@ -25,7 +25,13 @@
                                 </a>
                             </td>
                             <td class="py-2 px-4 border-b">{{ $task->description }}</td>
-                            <td class="py-2 px-4 border-b">{{ $task->due_date }}</td>
+                            <td class="py-2 px-4 border-b">
+                                @if ($task->due_date == now()->format('Y-m-d'))
+                                    <span class="text-red-500">{{ $task->due_date }}</span>
+                                @else
+                                    {{ $task->due_date }}
+                                @endif
+                            </td>
                             <td class="py-2 px-4 border-b">{{ ucwords(str_replace('_', ' ', $task->status)) }}</td>
                             <td class="py-2 px-4 border-b text-center">
                                 <a href="{{ route('markAsDone', ['GUID' => $task->GUID]) }}"
