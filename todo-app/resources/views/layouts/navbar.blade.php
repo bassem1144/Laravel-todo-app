@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center bg-gradient-to-r from-teal-400 to-blue-300 text-white p-4 shadow-md">
+<div class="flex justify-between items-center bg-gradient-to-r from-teal-400 to-blue-600 text-white p-4 shadow-md">
     <div class="flex items-center">
         <a href="/dashboard" class="mr-2">
             HOME
@@ -8,7 +8,7 @@
     </div>
 
     <div class="flex items-center">
-        <a href="{{ route('task.create') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+        <a href="{{ route('task.create') }}" class="bg-indigo-800 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
             Add Task
         </a>
 
