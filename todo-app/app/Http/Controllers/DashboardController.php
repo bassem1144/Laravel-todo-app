@@ -23,11 +23,11 @@ class DashboardController extends Controller
             return $task->due_date == now()->addDay()->format('Y-m-d');
         });
 
-        $restOfWeekTasks = $tasks->filter(function ($task) {
+        $thisWeekTasks = $tasks->filter(function ($task) {
             return now()->lt(Carbon::parse($task->due_date)->endOfDay()) && now()->endOfWeek()->gte(Carbon::parse($task->due_date));
         });
 
-        return view('dashboard', compact('todayTasks', 'tomorrowTasks', 'restOfWeekTasks'));
+        return view('dashboard', compact('todayTasks', 'tomorrowTasks', 'thisWeekTasks'));
     }
 
     public function create()

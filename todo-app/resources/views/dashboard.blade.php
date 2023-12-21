@@ -89,7 +89,7 @@
         </div>
     @endif
 
-    @if ($restOfWeekTasks->count() > 0)
+    @if ($thisWeekTasks->count() > 0)
         <div class="bg-white rounded-md shadow-md overflow-hidden p-4 mx-auto mt-8 max-w-2xl">
             <h2 class="text-lg font-semibold mb-2">Tasks Due This Week</h2>
             <table class="min-w-full">
@@ -103,7 +103,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($restOfWeekTasks as $task)
+                    @foreach ($thisWeekTasks as $task)
                         <tr>
                             <td class="py-2 px-4 border-b">
                                 <a href="{{ route('task.edit', $task->id) }}" class="text-blue-500 hover:underline">
@@ -131,7 +131,7 @@
         </div>
     @endif
 
-    @if ($todayTasks->isEmpty() && $tomorrowTasks->isEmpty() && $restOfWeekTasks->isEmpty())
+    @if ($todayTasks->isEmpty() && $tomorrowTasks->isEmpty() && $thisWeekTasks->isEmpty())
         <div class="bg-white rounded-md shadow-md overflow-hidden p-4 mx-auto mt-8 max-w-2xl">
             <h1 class="text-2xl font-semibold mb-6">No Tasks</h1>
             <p class="text-gray-600">You have no tasks this week.</p>
